@@ -20,7 +20,7 @@ ln -sf "../${MANIFEST}/conf/local.conf" conf/local.conf
 ln -sf "../${MANIFEST}/conf/bblayers.conf" conf/bblayers.conf
 
 # Default MACHINE.
-__DEFAULT_MACHINE="intel-core2-32"
+__DEFAULT_MACHINE="qemux86"
 __DEFAULT_DISTRO=""
 cat > conf/auto.conf <<EOF
 MACHINE ?= "${__DEFAULT_MACHINE}"
