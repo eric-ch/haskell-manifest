@@ -20,7 +20,7 @@ ln -sf "../${MANIFEST}/conf/local.conf" conf/local.conf
 ln -sf "../${MANIFEST}/conf/bblayers.conf" conf/bblayers.conf
 
 # Default MACHINE.
-__DEFAULT_MACHINE="qemux86-64"
+__DEFAULT_MACHINE="intel-core2-32"
 __DEFAULT_DISTRO=""
 cat > conf/auto.conf <<EOF
 MACHINE ?= "${__DEFAULT_MACHINE}"
@@ -40,4 +40,13 @@ SSTATE_DIR = "${OEROOT}/sstate-cache"
 # Which files do we want to parse:
 BBFILES ?= "${OEROOT}/layers/openembedded-core/meta/recipes-*/*/*.bb"
 
+# OpenXT: Where To get the signing certificates.
+OPENXT_CERTS_DIR ?= "${OEROOT}/oxt-certs"
+
+# OpenXT: Use local mirrors.
+OPENXT_GIT_MIRROR ?= "${OEROOT}/mirrors"
+OPENXT_GIT_PROTOCOL ?= "file"
+OPENXT_BRANCH ?= "master"
+OPENXT_TAG ?= "master"
+OPENXT_MIRROR ?= "http://mirror.openxt.org/"
 _EOF
